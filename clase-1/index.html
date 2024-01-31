@@ -1,0 +1,151 @@
+<!-- Hyper Text Markup Language -->
+<!DOCTYPE html>
+<html>
+
+<!-- Donde se carga todo antes -->
+<!-- Librerias, Archivos, Scripts -->
+
+<head>
+    <title>Inicio</title>
+    <!-- https://icons8.com/icon/set/favicon/family-experimental -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- Bootstrap -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+
+<!-- Donde se escribe ya todo el codigo de la pagina -->
+<!-- https://medium.com/@devsumitg/top-html-tags-every-web-developer-should-know-653092889eb4 -->
+
+<body>
+    <h1>Lista de Ejercicios</h1>
+    <h2>Lunes</h2>
+    <h3>Pierna</h3>
+    <p> Hoy se va a usar maquinas y barras</p>
+    <p> Mucha Suerte!</p>
+    <p>Ver rutina en mismo tab=> &nbsp;&nbsp; <a href="https://www.youtube.com/watch?v=p7FTc7LmXCU">Link</a></p>
+    <p>Ver rutina en otro tab=> <a target="_blank" href="https://www.youtube.com/watch?v=p7FTc7LmXCU">Link</a></p>
+
+    <h2>Miercoles</h2>
+
+
+    <h3>Pecho</h3>
+    <h2>Viernes</h2>
+
+
+    <h3>Espalda</h3>
+    <br />
+    <p>Espacio</p>
+    <a href="https://i.pinimg.com/originals/d0/83/40/d0834000b9352b9968091904a2b0f593.gif">
+        <img alt="elmo-dancing" src="https://i.pinimg.com/originals/d0/83/40/d0834000b9352b9968091904a2b0f593.gif" />
+    </a>
+
+    <h3>Contact Me! (image from web )</h3>
+    <a href="https://wa.me/50660308439">
+        <img alt="pikachu" height="100" width="auto"
+            src="https://yt3.googleusercontent.com/EmcNYKoW2FDaWreuqsWiuZDukcgrweyUi1yHSn24wGpF-MqWRzbNwjDgtlrZUvQVZo2kK7gW=s900-c-k-c0x00ffffff-no-rj" />
+    </a>
+    <h3>Image from local</h3>
+    <a href="https://wa.me/50660308439">
+        <img alt="pikachu" height="100" width="auto" src="images/pika.jpeg" />
+    </a>
+    <hr />
+    <div id="contact-us-form">
+        <h2>Contactanos!</h2>
+        <form method="POST" action="/contact-user">
+            <div>
+                <label for="name">Nombre: </label>
+                <input id="name" name="name" placeholder="Carlos" required="required" />
+            </div>
+            <div>
+                <label for="phone">Telefono: </label>
+                <input id="phone" name="phone" placeholder="+506XXXXX" />
+            </div>
+            <br/>
+            <label for="age">Edad: </label>
+            <input type="number" max="99" min="15" id="age" name="age" placeholder="18" />
+            <label for="password">Contraseña: </label>
+            <input id="password" type="password" name="password" placeholder="******" />
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <hr>
+    <h2>Tabla de Usuarios</h2>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+        </tr>
+        <tr>
+            <td>Pablo</td>
+            <td>30</td>
+        </tr>
+    </table>
+    <h2>Lista de Ejercicios</h2>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Dia</th>
+            <th>Tipo</th>
+            <th>Maquina</th>
+            <th>Video</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Lunes</td>
+            <td>Pierna</td>
+            <td>Sentadilla Smith</td>
+            <td><a target="_blank" href="https://www.youtube.com/watch?v=p7FTc7LmXCU">Link</a></td>
+            <td>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Martes</td>
+            <td>Pecho</td>
+            <td>Press Militar</td>
+            <td><a target="_blank" href="https://www.youtube.com/watch?v=p7FTc7LmXCU">Link</a></td>
+            <td>
+                <button>Eliminar</button>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <!-- Lista -->
+    <div id="list-examples">
+        <label>Unordered List</label>
+        <ul>
+            <!-- List item -->
+            <li>Pablito</li>
+            <li>Camilo</li>
+            <li>Tony</li>
+            <li>Pablo Araya</li>
+            <li>Jessy</li>
+        </ul>
+        <label>Ordered List</label>
+        <ol>
+            <!-- List item -->
+            <li>Pablito</li>
+            <li>Camilo</li>
+            <li>Tony</li>
+            <li>Pablo Araya</li>
+            <li>Jessy</li>
+        </ul>
+    </div>
+</body>
+<!-- Tags de html: https://www.w3schools.com/tags/ -->
+
+</html>
