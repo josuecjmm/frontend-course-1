@@ -1,0 +1,79 @@
+h3 {
+    color: #467728
+}
+
+#profesional {
+    /* width: 80%; */
+}
+
+#user-img {
+    height: auto;
+    max-width: 50%;
+    min-width: 20px;
+}
+
+#resume {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.contact-info-img {
+    height: auto;
+    max-width: 50px;
+    min-width: 12px;
+}
+
+[data-test="section-work-experience"] {
+    border-style: dotted;
+    padding: 5%;
+}
+
+[data-test="section-work-experience"] h3 {
+    font-style: italic;
+    /* mala practica; pero posible */
+    font-size: 40px;
+}
+
+[data-test="section-work-experience"] h4 {
+    font-weight: bold;
+}
+
+.btn-animation {
+    height: 100px;
+    width: 200px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #467728;
+    color: white;
+    font-weight: bold;
+    border-radius: 20%;
+}
+
+.btn-animation:hover {
+    background-color: lightblue;
+    animation-name: example;
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+.paboma {
+    padding-top: 28px;
+    padding-left: 70px;
+    border-style: solid;
+    border-color: red;
+    margin-top: 40px;
+}
+
+.multipleItems {
+    padding-left: 20%;
+    padding-right: 20%;
+    margin-top: 20px;
+}
+
+.multipleItems button {
+    margin: 2%;
+    position: relative;
+    float:left
+}
+
+/* tag html, id, clases, attributo html */
