@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <button
+     style="border-radius: 25%; background-color: red; color:aliceblue; margin-bottom: 5px;"
+     onclick="clearState()"
+     >Clear State</button>
+    <form>
+        <input id="inputTodo" />
+        <button type="submit">Add</button>
+    </form>
+    <ul id="listOfTodo"></ul>
+
+    <script>
+        const form = document.querySelector('form')
+        const inputTodo = document.querySelector('#inputTodo')
+        const listOfTodo = document.querySelector('#listOfTodo')
+        const buttonSubmit = document.querySelector('[type="submit"]')
+
+        // Leer el localstorage
+        // https://www.w3schools.com/jsref/prop_win_localstorage.asp
+        // Esto se usa como un state del app 
+        const list = JSON.parse(localStorage.getItem('todos'))  || []
+
+        // Lifecycle de la pagina 
+        list.forEach(item => addTodo(item))
+
+        // Event Listeners
+        function addTodo(text) {
+            const li = document.createElement('li')
+            li.innerHTML = text
+            listOfTodo.appendChild(li)
+            list.push(text)
+            localStorage.setItem('todos', JSON.stringify(list))
+        }
+
+         // Event Listeners
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            const value = inputTodo.value;
+            if (value.length < 1) {
+                alert('The todo cannot be in blank!')
+            } else {
+                addTodo(value)
+                inputTodo.value = ''
+            }
+        }
+        
+        function clearState() {
+            localStorage.clear()
+            window.location.reload()
+        }
+
+    </script>
+</body>
+
+</html>

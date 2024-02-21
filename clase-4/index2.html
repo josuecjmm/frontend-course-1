@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 4</title>
+</head>
+
+<body>
+    <h1> Hello <span>Pablito!</span></h1>
+    <button onclick="changeColor()"> Change color</button>
+
+    <input id="name" placeholder="put your name here..."/>
+    <button onclick="changeName()">Change name</button>
+
+    <script>
+        const table = [{name: 'Jessy'}, {name: 'Pablo'}]
+        console.log('hello world!')
+        console.warn('warning!')
+        console.error('error!')
+        console.table(table)
+        // alert('Hello Pablo!')
+        // DOM => Document Object Model 
+        // JQUERY => $('h1 span')
+        const username = document.querySelector('h1 span')
+        const valueName = document.querySelector('#name'); 
+
+        function changeColor() {
+            if(username.style.color === 'red') {
+                username.style.color = 'black'
+            } else {
+                username.style.color = 'red'
+            }
+        }
+
+        function changeName() {
+            if(valueName.value.length < 1 ) {
+                alert('username in blank!')
+            } else {
+                username.innerHTML = valueName.value
+            }
+            
+        }
+    </script>
+</body>
+
+</html>

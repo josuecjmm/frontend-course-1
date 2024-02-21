@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clase 4</title>
+</head>
+
+<body>
+    <form >
+        <input placeholder="Benito Perez" name="username"/>
+        <br/>
+        <br/>
+        <input placeholder="****" type="password" name="password"/>
+        <button onclick="viewPassword()" type="button">(-)</button>
+        <br/>
+        <button type="submit" style="margin-top: 2%;">Login</button>
+    </form>
+
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        const inputUser = document.querySelector('[name="username"]')
+        const inputPassword = document.querySelector('[type="password"]')
+        const buttonTypeButton = document.querySelector('[type="button"]')
+        const form = document.querySelector('form')
+        function viewPassword() {
+            if(inputPassword.type === 'password') {
+                inputPassword.type = 'text'
+                buttonTypeButton.innerHTML = '(0)'
+            } else {
+                inputPassword.type = 'password'
+                buttonTypeButton.innerHTML = '(-)'
+            }
+           
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            const usernameValue = inputUser.value
+            const passwordValue = inputPassword.value
+            const requestBody = {
+                username: usernameValue,
+                password: passwordValue
+            }
+            console.log(JSON.stringify(requestBody))
+            // const response = fetch.post('/login', requestBody)
+            localStorage.setItem('user', JSON.stringify(requestBody))
+            inputUser.value = ''
+            inputPassword.value = ''
+        }
+
+        function logout() {
+            localStorage.clear()
+        }
+    </script>
+</body>
+
+</html>

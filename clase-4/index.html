@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input placeholder="todo.." id="todo" />
+        <button id="addTodo" type="submit">Add TODO</button>
+    </form>
+    <ul id="todoList"></ul>
+
+    <script>
+        const form = document.querySelector('form')
+        const inputTodo = document.querySelector('#todo')
+        const btnAddTodo = document.querySelector('#addTodo')
+        const listOfTodo = document.querySelector('#todoList')
+
+        const todoList = localStorage.getItem('todo') ? JSON.parse(localStorage.getItem('todo')) : [];
+        if(todoList && todoList.length > 0) {
+            todoList.forEach(item => addTodo(item))
+        }
+        function addTodo(text) {
+            todoList.push(text)
+            const li = document.createElement('li')
+            li.innerHTML = text;
+            listOfTodo.appendChild(li)
+            localStorage.setItem('todo', JSON.stringify(todoList))
+            inputTodo.value = ''
+        }
+
+        form.onsubmit = (e) => {
+            e.preventDefault()
+            addTodo(inputTodo.value)
+        }
+
+
+
+    </script>
+</body>
+
+</html>
