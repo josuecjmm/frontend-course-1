@@ -1,8 +1,12 @@
 <%- include('includes/head.ejs') %>
-<h1>Hola <%= hello%></h1>
-<ul>
-    <%users.forEach(user => {%>
-        <li><%= user %></li>
-    <%})%>
-</ul>
-<%- include('includes/end.ejs') %>
+<%- include('includes/navigation.ejs') %>
+    <h1>Hola <%= hello%>
+    </h1>
+    <ul>
+        <%users.forEach(user=> {%>
+            <li>
+                <%= user %>
+            </li>
+            <%})%>
+    </ul>
+    <%- include('includes/end.ejs') %>
