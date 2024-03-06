@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h1>Pet List</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">NAME</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% list.forEach(pet => { %>
+                                <tr class="table-primary">
+                                    <th><%=pet.id%></th>
+                                    <td><%=pet.name%></td>
+                                    <td><%=pet.status%></td>
+                                    <td><a href="/pet/<%=pet.id%>">Editar</a></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <%- include('../includes/end.ejs') %>
