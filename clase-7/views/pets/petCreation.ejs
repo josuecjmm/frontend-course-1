@@ -1,0 +1,46 @@
+<%- include('../includes/head.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <!-- <h1>New Pet</h1> -->
+                    <% if (pet) { %>
+                        <h1><%=pet.name%></h1>
+                    <% } else {%>
+                        <h1>New Pet</h1>
+                    <%}%>
+                </div>
+            </div>
+            <% if (error.length> 0) { %>
+                <div class="alert alert-dismissible alert-primary">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <% error.forEach(e=> { %>
+                        <p>
+                            <%= e %>
+                        </p>
+                        <% }) %>
+                </div>
+                <% } %>
+                    <form method="post" action="<%=pet ? '/pet/edit' : '/pet'%>">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                                <label for="id">ID</label>
+                                <input id="id" name="id" placeholder="#" class="form-control" type="number" min="800"
+                                    max="900" value="<%= pet ? pet.id : ''%>">
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+                                <label for="name">NOMBRE</label>
+                                <input id="name" name="name" placeholder="oso" class="form-control"
+                                    value="<%= pet ? pet.name : ''%>">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-primary"><%= pet ? 'Editar' : 'Guardar'%></button>
+                            </div>
+                        </div>
+                    </form>
+
+        </div>
+        <%- include('../includes/end.ejs') %>

@@ -1,0 +1,37 @@
+<%- include('includes/head.ejs') %>
+    <%- include('includes/navigation.ejs') %>
+        <h1>
+            Propuesta de Trabajo
+        </h1>
+        <%console.log('jessy')%>
+        <%= JSON.stringify(user) %>
+        <!-- Conditional Render -->
+        <% if (error.length > 0) { %>
+            <div class="alert alert-dismissible alert-primary">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <% error.forEach(e => { %>
+                    <p> <%= e %> </p>
+                <% }) %>
+              </div>
+        <% } %>
+        <form method="post" action="/proposal">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-xs-12 mb-2">
+                    <label for="enterprise">Empresa</label>
+                    <input id="enterprise" name="enterprise">
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12 mb-2">
+                    <label for="salary">Salario</label>
+                    <input id="salary" name="salary" type="number" min="1000">
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12 mb-2">
+                    <label for="recruiter">Reclutador</label>
+                    <input id="recruiter" name="recruiter">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </form>
+
+        <%- include('includes/end.ejs') %>

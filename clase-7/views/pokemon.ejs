@@ -1,0 +1,58 @@
+<%- include('./includes/head.ejs') %>
+    <%- include('./includes/navigation.ejs') %>
+        <div id="app">
+            <div class="container p-2">
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <label for="pokemonId">Search Pokemon</label>
+                        <input v-model="searchText" id="pokemonId" class="form-control" placeholder="..." />
+                    </div>
+                </div>
+                <div class="row">
+                   <ul>
+                        <li v-for="pokemon in filteredPokemon" >
+                            {{pokemon}}
+                        </li>
+                   </ul>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Convertir de render del backend a una constante de 
+            // javascript esta lista 
+            const pokemonList = <%-JSON.stringify(list) %>;
+            console.log('This is the pokemon list===>', pokemonList)
+
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        pokemonList,
+                        searchText: '',
+                    }
+                },
+                computed: {
+                    filteredPokemon() {
+                        let filteredValues = this.pokemonList
+                        console.log('***************')
+                        console.log('original values=>', filteredValues)
+                        console.log('search Text=>', this.searchText)
+                        if(this.searchText.length > 0) {
+                            console.log('search Text + 0=>', this.searchText)
+                            filteredValues = filteredValues.filter(
+                                // valor iterador en este caso pokemon 
+                                pokemon =>
+                                // valor de busqueda
+                                 pokemon.toLowerCase()
+                                 .includes(this.searchText.toLowerCase())
+                            )
+                            console.log('filtered values=>', filteredValues)
+                            console.log('***************')
+                        }
+
+                        return filteredValues
+                    }
+                }
+            })
+            app.mount('#app')
+        </script>
+        <%- include('./includes/end.ejs') %>

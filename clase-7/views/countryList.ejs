@@ -1,0 +1,66 @@
+<%- include('./includes/head.ejs') %>
+    <%- include('./includes/navigation.ejs') %>
+        <div id="app">
+            <div class="container p-2">
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <label for="countryId">Search Country</label>
+                        <input v-model="searchText" id="countryId" class="form-control" placeholder="Eritrea" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <table class="table table-hover table-primary">
+                            <thead> 
+                                <tr>
+                                    <th scope="col">Common</th>
+                                    <th scope="col">Official</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="country in filteredCountries">
+                                    <td>{{country.common}}</td>
+                                    <td>{{country.official}}</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <a :href="'/country/' + country.common">
+                                                Abrir
+                                            </a>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const countriesList = <%-JSON.stringify(list) %>;
+            console.log(countriesList)
+            const app = Vue.createApp({
+                data() {
+                    return {
+                        countriesList,
+                        searchText: '',
+                    }
+                },
+                computed: {
+                    filteredCountries() {
+                        let filteredCountries = this.countriesList;
+                        if (this.searchText) {
+                            filteredCountries = filteredCountries.filter(
+                                country =>
+                                    country.common.toLowerCase()
+                                        .includes(this.searchText.toLowerCase()
+                                        )
+                            )
+                        }
+                        return filteredCountries
+                    }
+                }
+            })
+            app.mount('#app')
+        </script>
+        <%- include('./includes/end.ejs') %>
